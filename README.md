@@ -206,11 +206,15 @@ python examples/rec_video_vae.py --rec-path test_video.mp4 --video-path video.mp
 We present our reconstructed videos in this demonstration as follows: 
 
 [raw video](https://streamable.com/gqojal)
-https://github.com/PKU-YuanGroup/Open-Sora-Plan/assets/88202804/c100bb02-2420-48a3-9d7b-4608a41f14aa
+
+https://github.com/qqingzheng/Open-Sora-Plan/assets/88202804/10e8865f-4b69-406f-b035-7178a5a96fd6
+
 
 [raw video](https://streamable.com/6nu3j8)
-https://github.com/PKU-YuanGroup/Open-Sora-Plan/assets/88202804/8aa8f587-d9f1-4e8b-8a82-d3bf9ba91d68
 
+https://github.com/qqingzheng/Open-Sora-Plan/assets/88202804/0dbf8f8f-efba-414e-ad42-1f839839f9cf
+
+For more details, please refer to: [Causal Video VAE Report](Report_v1.md).
 
 ### VideoGPT VQVAE
 
