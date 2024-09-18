@@ -319,7 +319,7 @@ class WFVAEModel(VideoBaseAE):
         # Hardcode for now
         self.t_chunk_enc = 16
         self.t_upsample_times = 4 // 2
-        self.t_chunk_dec = 2
+        self.t_chunk_dec = 4
         self.use_quant_layer = False
 
         self.encoder = Encoder(
@@ -403,7 +403,7 @@ class WFVAEModel(VideoBaseAE):
             h = self.encoder(coeffs)
             if self.use_quant_layer:
                 h = self.quant_conv(h)
-            
+        
         posterior = DiagonalGaussianDistribution(h)
         return posterior
     
@@ -427,10 +427,14 @@ class WFVAEModel(VideoBaseAE):
         
         if self.use_tiling:
             dec = self.tile_decode(z)
+            torch.save(dec, "decode_tiling.pt")
+            
         else:
             if self.use_quant_layer:
                 z = self.post_quant_conv(z)
             dec = self.decoder(z)
+            torch.save(dec, "decode.pt")
+            
         if torch_npu is not None:
             dtype = dec.dtype
             dec = dec.to(torch.float16)
